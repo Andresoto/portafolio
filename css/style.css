@@ -1,5 +1,8 @@
 :root {
-    --primary: #454545;
+    --primary: #04364A;
+    --primary-opacity: #176b8752;
+    --secondary: #64CCC5;
+    --other: #176B87;
 }
 
 * {
@@ -10,12 +13,27 @@
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
     font-size: 1.6rem;
     font-family: 'Cormorant Upright', serif;
 }
+
+section[id] {
+    scroll-margin-top: 60px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad aquí */
+    display: none;
+  }
 
 .border {
     border: 1px solid red;
@@ -27,6 +45,8 @@ body {
     height: 60px;
     position: sticky;
     top: 0;
+    border-bottom: 1px solid var(--primary-opacity);
+    box-shadow: 0 4px 17px -6px var(--other);
 }
 
 .nav {
@@ -65,9 +85,9 @@ body {
 
 .nav-menu-link:hover,
 .nav-menu-link_active {
-    border: 1px solid red;
+    border: 1px solid var(--secondary);
     border-radius: 10px;
-    color: red;
+    color: var(--secondary);
 }
 
 .nav-toggle {
@@ -79,22 +99,6 @@ body {
     cursor: pointer;
 }
 
-main {
-    width: 100%;
-    height: 600px;
-    background-color: black;
-}
-
-.yolo {
-    width: 100%;
-    height: 1200px;
-}
-
-footer {
-    width: 100%;
-    height: 600px;
-    background-color: var(--primary);
-}
 
 @media (max-width: 576px) {
     .navbar-right {
@@ -125,7 +129,6 @@ footer {
         margin: 2px 0;
     }
     
-
     .nav-toggle {
         display: block;
     }
