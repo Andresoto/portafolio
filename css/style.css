@@ -3,6 +3,10 @@
     --primary-opacity: #176b8752;
     --secondary: #64CCC5;
     --other: #176B87;
+    --fondo: #0b2631;
+    --container-width: 90vw;
+    --wheat: wheat;
+    --white: #fff;
 }
 
 * {
@@ -19,6 +23,9 @@ html {
 body {
     font-size: 1.6rem;
     font-family: 'Cormorant Upright', serif;
+    color: var(--white);
+    /* background-color: var(--fondo); */
+    background: linear-gradient(80deg, #0b2631 0%, #0b2631 35%, #176b87 100%);
 }
 
 section[id] {
@@ -40,7 +47,7 @@ section[id] {
 }
 
 .header {
-    padding: 0 24px;
+    /* padding: 0 24px; */
     background-color: var(--primary);
     height: 60px;
     position: sticky;
@@ -50,6 +57,8 @@ section[id] {
 }
 
 .nav {
+    width: var(--container-width);
+    margin: 0 auto;
     height: inherit;
     display: flex;
     justify-content: space-between;
@@ -69,7 +78,7 @@ section[id] {
 }
 
 .navbar-left a {
-    height: 100%;
+    height: 80%;
 }
 
 .logo {
@@ -99,6 +108,69 @@ section[id] {
     cursor: pointer;
 }
 
+.main {
+    width: var(--container-width);
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.main .main-home {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    min-height: calc(100vh - 60px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    /* justify-items: center; */
+    align-content: center;
+}
+
+.main .main-home h1 {
+    font-size: 5rem;
+    text-indent: 62px;
+}
+
+.main-home-info {
+    justify-self: start;
+}
+
+.tags {
+    color: #515152;
+    font-size: 3rem;
+    font-family: Seaweed Script, cursive;
+    color: var(--wheat);
+}
+
+.main-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.main-photo_blob{
+    max-width: 100%;
+}
+
+.main-photo_blob_image {
+    width: 250px;
+}
+
+.main > section {
+    width: 100%;
+    min-height: 400px;
+    /* border: 1px solid red; */
+    /* color: white; */
+}
+
+footer {
+    width: 100%;
+    height: 600px;
+    background-color: var(--primary);
+}
 
 @media (max-width: 576px) {
     .navbar-right {
@@ -133,5 +205,4 @@ section[id] {
         display: block;
     }
 
-    
 }
