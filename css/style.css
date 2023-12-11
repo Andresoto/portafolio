@@ -9,7 +9,9 @@
     --white: #fff;
 }
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -55,6 +57,7 @@ section[id] {
     top: 0;
     border-bottom: 1px solid var(--primary-opacity);
     box-shadow: 0 4px 17px -6px var(--other);
+    z-index: 999;
 }
 
 .nav {
@@ -116,18 +119,25 @@ section[id] {
     margin: 0 auto;
 }
 
-/* .main-container {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-} */
+.bg {
+  background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("../assets/fondo-inicio.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
 
 .main .main-home {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     min-height: calc(100vh - 60px);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+    grid-template-columns: 1fr 1fr;
     align-content: center;
 }
 
@@ -138,6 +148,7 @@ section[id] {
 
 .main-home-info {
     justify-self: start;
+    z-index: 10;
 }
 
 .tags {
@@ -153,31 +164,30 @@ section[id] {
     align-items: center;
 }
 
-/* .main-photo-container {
-    width: 350px;
-} */
-
-
 .main-photo-container {
-width: 355px;
-height: 510.47px; /* Calcula la altura del hexágono (sqrt(3)/2 * width) */
-background-color: #ccc;
-position: relative;
-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    width: 355px;
+    height: 510.47px; /* Calcula la altura del hexágono (sqrt(3)/2 * width) */
+    background-color: #ccc;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
 
 .main-photo-container img{
-width: 100%;
-height: 100%;
-object-fit: cover;
-clip-path: inherit;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: inherit;
 }
 
 /* Información */
+#sobreMi {
+    margin-top: 40px;
+}
+
 .info-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding-top: 24px;
 }
@@ -227,47 +237,47 @@ h2 {
     &.html svg{
         fill: #e5532c;
     }
-    
+
     &.css svg{
         fill: #0071bd;
     }
-    
+
     &.javascript svg{
         fill: #f7e025;
     }
-    
+
     &.typescript svg{
         fill: #2f74c0;
     }
-    
+
     &.sass svg{
         fill: #c76494;
     }
-    
+
     &.bootstrap svg{
         fill: #8512f7;
     }
-    
+
     &.npm svg{
         fill: #c53635;
     }
-    
+
     &.angular svg{
         fill: #c50836;
     }
-    
+
     &.ionic svg{
         fill: #4586f7;
     }
-    
+
     &.git svg{
         fill: #e84e31;
     }
-    
+
     &.github svg{
         fill: #000;
     }
-    
+
     &.sql svg{
         fill: #64b9e8;
     }
@@ -298,7 +308,7 @@ footer {
     background-color: var(--primary);
 }
 
-@media (max-width: 576px) {
+@media (max-width: 778px) {
     .navbar-right {
         position: fixed;
         top: 60px;
@@ -326,9 +336,71 @@ footer {
         padding-bottom: 20px;
         margin: 2px 0;
     }
-    
+
     .nav-toggle {
         display: block;
+    }
+
+     /* inicio */
+
+     .main-home {
+        gap: 12px;
+     }
+
+     .main .main-home {
+        grid-template-columns: 1fr;
+    }
+
+     html {
+        font-size: 55%;
+    }
+
+     .main-home-info {
+        justify-self: center;
+    }
+
+    .bg {
+        height: 135vh;
+    }
+
+    .main-photo-container{
+        width: 320px;
+        height: 463.47px;
+    }
+
+    /* Información */
+    #sobreMi {
+        margin-top: 90px;
+    }
+
+    .info-container {
+        grid-template-columns: 1fr;
+    }
+
+    .info-img{
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Habilidades */
+    .skill {
+        width: 15rem;
+    }
+}
+
+@media (max-width: 350px) {
+
+    html {
+        font-size: 49%;
+    }
+
+    .bg {
+        height: 110vh;
+    }
+
+    .main-photo-container{
+        width: 255px;
+        height: 310.47px;
     }
 
 }
